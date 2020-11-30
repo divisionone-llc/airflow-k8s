@@ -35,7 +35,7 @@ with dag:
         name="airflow-test-pod",
         task_id="task-one",
         in_cluster=True,
-        config_file=config_file,
+        config_file=None,
         resources=compute_resources,
         is_delete_operator_pod=True,
         get_logs=True)
