@@ -13,7 +13,7 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-dag = DAG('example_kubernetes_pod',
+dag = DAG(dag_id='example_kubernetes_pod',
           schedule_interval='@once',
           default_args=default_args)
 
