@@ -13,9 +13,6 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-namespace = conf.get('kubernetes', 'NAMESPACE')
-
-
 dag = DAG('example_kubernetes_pod',
           schedule_interval='@once',
           default_args=default_args)
@@ -29,7 +26,7 @@ compute_resources = \
 
 with dag:
     k = KubernetesPodOperator(
-        namespace=namespace,
+        namespace="airflow",
         image="hello-world",
         labels={"foo": "bar"},
         name="airflow-test-pod",
